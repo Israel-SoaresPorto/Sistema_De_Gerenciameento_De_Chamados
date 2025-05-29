@@ -16,11 +16,12 @@ export default function ChatContainer() {
   const userId = user?.id;
   // Hook para obter os parâmetros da URL
   const params = useParams();
+  const chamadoId = Number(params.id);
 
   // Faz uso do hook useChat para obter o histórico de mensagens e a função de envio
   const { history, sendMessage, loading } = useChat(
-    Number(params.id),
-    Number(userId)
+    chamadoId,
+    userId as number
   );
   // ref para o contêiner de mensagens
   const containerRef = useRef<HTMLDivElement>(null);
